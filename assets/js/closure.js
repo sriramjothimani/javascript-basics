@@ -1,8 +1,8 @@
 // Function and Lexical environment
-
+// https://blog.bitsrc.io/a-beginners-guide-to-closures-in-javascript-97d372284dda
 function closureFunction(value) {
-    var outerScope = value; // Global scope
-    function lexicalFunction() {   // Lexical Environment
+    var outerScope = value; // Global scope or the lexical environment
+    function lexicalFunction() {
         console.log(outerScope);
     }
 
