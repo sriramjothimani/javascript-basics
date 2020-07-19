@@ -46,3 +46,55 @@ console.log(obj.age);
 
 console.log('The objects do not have visibility of the private methods, and this will result in : ', obj.privateMethod);
 console.log('rather, it can access the prototype methods, ', obj.inheritableMethod());
+
+// Unlike in other languages, this refers to the execution context
+
+// The call method calls an other function by passing the current context
+// and all the required attributed for that method
+function person(phoneNum, name, yearOfBirth, sex) {
+    struct.call(this, name, yearOfBirth, sex);
+
+    this.phoneNum = phoneNum;
+}
+
+// The apply method and call are same where apply takes an array of
+// arguments
+function student(classId, name, yearOfBirth, sex) {
+    struct.apply(this, [name, yearOfBirth, sex]);
+
+    this.classId = classId;
+}
+
+// So what is a class then
+
+// Class is an alternative or simpler syntax introduced in ES6 to replace the
+// complex prototypical inheritance syntax
+
+class _struct {
+    constructor(name, yearOfBirth, sex) {
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.sex = sex;
+        this.age = this.calculateAge(this.yearOfBirth);
+    }
+
+    calculateAge(yearOfBirth) {
+        var currentYear = 2020;
+        return currentYear - yearOfBirth;
+    };
+}
+
+let sample = new _struct('sriram', 1984, 'm');
+console.log('Final sample:',sample);
+
+// Inheritance simplified
+
+class _person extends _struct {
+    constructor(phone, name, yearOfBirth, sex) {
+        super(name, yearOfBirth, sex);
+        this.phone = phone;
+    }
+}
+
+let samplePerson = new _person('97514', 'sriram', 1984, 'm');
+console.log(samplePerson);
