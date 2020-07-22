@@ -26,3 +26,21 @@ function apiCall() {
 }
 
 apiCall();
+
+function childFunction(callBackRef) {
+
+    setTimeout(function() {
+        console.log('Asynchronous operation');
+        callBackRef();
+    }, 10);
+}
+
+function parentFunction() {
+
+    let callBackfunction = function() {
+        console.log('this is a callback')
+    }
+    childFunction(callBackfunction);
+}
+
+parentFunction();

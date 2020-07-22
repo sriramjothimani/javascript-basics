@@ -7,7 +7,7 @@ console.log('Concat :',numbers);
 
 // Join
 
-test = numbers.join('-');
+let test = numbers.join('-');
 console.log('Join :',test);
 
 // Push
@@ -137,4 +137,22 @@ iSectionStuds = studentsArray.reduce(accumulator, []);
 
 console.log('Students of I with marks > 10,',iSectionStuds);
 
+const routeEntitlements = {
+    '/rep' : ['IPT_ADMIN', 'FACILITY_ADMIN'],
+    '/rep/add' : ['IPT_ADMIN', 'FACILITY_ADMIN'],
+    '/rep/:id/facility' : ['IPT_ADMIN', 'FACILITY_ADMIN']
+};
+const targetRoute = '/rep';
 
+function checkAuthorization(roles, route) {
+    console.log('1:',roles);
+    console.log('2:',route);
+    console.log('target route', targetRoute);
+    console.log(routeEntitlements[route]);
+    if (route === targetRoute) {
+        roles.concat(routeEntitlements[route]);
+    }
+    return roles;
+}
+const authorizedRoute = Object.keys(routeEntitlements).reduce(checkAuthorization, []);
+console.log('Authorized Route :',authorizedRoute);

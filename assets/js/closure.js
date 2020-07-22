@@ -19,11 +19,12 @@ lexicalScope_B();
 
 var counter = (function() {
     var privateCounter = 0;
+    // Private methods
     function changeBy(val) {
         privateCounter += val;
     }
 
-    // Private methods
+    // Public methods
     return {
         increment: function(val) {
             changeBy(val * 1);
