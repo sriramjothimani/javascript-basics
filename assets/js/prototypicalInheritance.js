@@ -50,7 +50,7 @@ console.log('rather, it can access the prototype methods, ', obj.inheritableMeth
 // Unlike in other languages, this refers to the execution context
 
 // The call method calls an other function by passing the current context
-// and all the required attributed for that method
+// and all the required attributes for that method
 function person(phoneNum, name, yearOfBirth, sex) {
     struct.call(this, name, yearOfBirth, sex);
 
@@ -71,6 +71,8 @@ function student(classId, name, yearOfBirth, sex) {
 // complex prototypical inheritance syntax
 
 class _struct {
+    static a = 10;
+    b = 10;
     constructor(name, yearOfBirth, sex) {
         this.name = name;
         this.yearOfBirth = yearOfBirth;
@@ -85,6 +87,7 @@ class _struct {
 }
 
 let sample = new _struct('sriram', 1984, 'm');
+console.log('static field,', _struct.a);
 console.log('Final sample:',sample);
 
 // Inheritance simplified
@@ -97,4 +100,5 @@ class _person extends _struct {
 }
 
 let samplePerson = new _person('97514', 'sriram', 1984, 'm');
-console.log(samplePerson);
+console.log('sample person,',samplePerson);
+
