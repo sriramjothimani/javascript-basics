@@ -6,6 +6,8 @@
 
 ##### Test change for second commit to be removed
 
+##### Test change for third commit to be removed later
+
 ## Closure
 
 Closure is a function which has access to the scope of the outer functions even though it is returned. 
